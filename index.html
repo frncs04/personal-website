@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personal Website</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Modal Overlay */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Contact Form Modal */
+    .contact-form {
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+    }
+
+    .contact-form button {
+      background-color: #f08a06;
+      color: rgb(88, 64, 64);
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #0ea3e9;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+  
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+
+    <!-- Welcome Section -->
+    <section id="welcome" class="welcome-section">
+      <div class="text-content">
+        <h1>Welcome to My Personal Website!</h1>
+      </div>
+    </section>
+
+  <!-- Home Section -->
+  <section id="home" class="home-section">
+    <div class="text-content">
+      <h1>Home</h1>
+      <p>Welcome! This is the first page you’ll see. Here’s a quick idea of who I am and easy links to explore more.</p>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="section-content">
+    <h2>About Me</h2>
+    <p>Hi! I'm Lee Francis Solicar, currently a BSIT 2 PACED student. I'm passionate about technology, constantly learning and exploring new ways to solve problems and create cool solutions. Let me share a bit more about my journey and what drives me!</p>
+  </section>
+
+<!-- Projects Section -->
+<section id="projects" class="section-content">
+  <h2>Projects</h2>
+  <ul>
+    <li>
+      <strong> Not Found</strong> Animation:</strong> A simple HTML and CSS animation.
+      <br><br>
+
+       <!-- Video Player -->
+      <video width="480" height="320" controls autoplay loop muted>
+        <source src="NotFound.mp4" type="video/mp4">
+
+      </video>
+      <br><br>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section-content">
+    <h2>Contact</h2>
+    <p>Get in touch via email or social media. I’d love to collaborate or chat about exciting opportunities!</p>
+
+    <!-- Email Link -->
+    <div class="contact-emails">
+      <p>Email me at:</p>
+      <ul>
+        <li><a href="javascript:void(0);" onclick="showContactForm()">lfsolicar@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="social-links">
+      <p>Follow me on:</p>
+      <ul>
+        <li><a href="https://www.facebook.com/leefrancis.solicar/" target="_blank">Facebook</a></li>
+        <li><a href="https://www.instagram.com/frncs.ls/" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Form Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="contact-form" id="contactForm">
+      <span class="close-btn" onclick="closeContactForm()">&times;</span>
+      <h3>Send me a message</h3>
+      <form action="send_email.php" method="post">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Lee Francis Solicar. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function showContactForm() {
+      document.getElementById('modalOverlay').style.display = 'flex';
+    }
+
+    function closeContactForm() {
+      document.getElementById('modalOverlay').style.display = 'none';
+    }
+
+    // Close modal when clicking outside the form
+    window.onclick = function(event) {
+      const overlay = document.getElementById('modalOverlay');
+      const form = document.getElementById('contactForm');
+      if (event.target === overlay) {
+        closeContactForm();
+      }
+    }
+  </script>
+
+</body>
+</html>
