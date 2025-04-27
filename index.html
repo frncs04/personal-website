@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Personal Website</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     html {
       scroll-behavior: smooth;
@@ -19,7 +20,7 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0, 0, 0, 0.5);
       justify-content: center;
       align-items: center;
     }
@@ -33,6 +34,7 @@
       max-width: 400px;
       position: relative;
       animation: fadeIn 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .contact-form input,
@@ -41,12 +43,13 @@
       padding: 10px;
       margin: 10px 0;
       border: 1px solid #ccc;
-      border-radius: 2px;
+      border-radius: 4px;
+      font-size: 1em;
     }
 
     .contact-form button {
       background-color: #f08a06;
-      color: rgb(88, 64, 64);
+      color: #fff;
       padding: 10px 15px;
       border: none;
       border-radius: 4px;
@@ -70,68 +73,142 @@
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
     }
+
+    /* Additional styling for the contact form page */
+    .contact-form-container {
+      width: 80%;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form-container h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .contact-form-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form-container input,
+    .contact-form-container textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+
+    .contact-form-container button {
+      background-color: #f08a06;
+      color: #fff;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1em;
+    }
+
+    .contact-form-container button:hover {
+      background-color: #0ea3e9;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-link a {
+      text-decoration: none;
+      color: #f08a06;
+      font-size: 1.1em;
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
   </style>
 </head>
+
 <body>
 
   <!-- Header -->
   <header>
-    <nav>
-  
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
   </header>
-
-
-    <!-- Welcome Section -->
-    <section id="welcome" class="welcome-section">
-      <div class="text-content">
-        <h1>Welcome to My Personal Website!</h1>
-      </div>
-    </section>
+  
+  <!-- Welcome Section -->
+  <section id="welcome" class="welcome-section">
+    <div class="text-content">
+      <h1>Welcome to My Personal Website!</h1>
+      <h2 id="typing-text" style="font-weight: normal; margin-top: 10px;"></h2>
+    </div>
+  </section>
 
   <!-- Home Section -->
-  <section id="home" class="home-section">
+  <section id="home" class="home-section fade-in">
     <div class="text-content">
       <h1>Home</h1>
       <p>Welcome! This is the first page you’ll see. Here’s a quick idea of who I am and easy links to explore more.</p>
     </div>
   </section>
 
-  <!-- About Me Section -->
-  <section id="about" class="section-content">
+  <!-- About Section -->
+  <section id="about" class="section-content fade-in">
     <h2>About Me</h2>
     <p>Hi! I'm Lee Francis Solicar, currently a BSIT 2 PACED student. I'm passionate about technology, constantly learning and exploring new ways to solve problems and create cool solutions. Let me share a bit more about my journey and what drives me!</p>
+  
+    <img src="human.jpg" alt="About Me Image" class="about-photo hidden" />
+  </section>
+  
+  <!-- Projects Section -->
+  <section id="projects" class="section-content fade-in">
+    <h2>Projects</h2>
+    <ul>
+      <li>
+        <strong>Not Found Animation:</strong> A simple HTML and CSS animation.
+        <br><br>
+        <video width="480" height="320" controls autoplay loop muted>
+          <source src="NotFound.mp4" type="video/mp4">
+        </video>
+        <br><br>
+      </li>
+    </ul>
   </section>
 
-<!-- Projects Section -->
-<section id="projects" class="section-content">
-  <h2>Projects</h2>
-  <ul>
-    <li>
-      <strong> Not Found</strong> Animation:</strong> A simple HTML and CSS animation.
-      <br><br>
-
-       <!-- Video Player -->
-      <video width="480" height="320" controls autoplay loop muted>
-        <source src="NotFound.mp4" type="video/mp4">
-
-      </video>
-      <br><br>
-
   <!-- Contact Section -->
-  <section id="contact" class="section-content">
+  <section id="contact" class="section-content fade-in">
     <h2>Contact</h2>
     <p>Get in touch via email or social media. I’d love to collaborate or chat about exciting opportunities!</p>
 
     <!-- Email Link -->
     <div class="contact-emails">
-      <p>Email me at:</p>
+      <p>Email me:</p>
       <ul>
-        <li><a href="javascript:void(0);" onclick="showContactForm()">lfsolicar@gmail.com</a></li>
+        <li><a href="email.html"> <i class="fas fa-envelope"></i></a></li>
       </ul>
     </div>
 
@@ -139,26 +216,27 @@
     <div class="social-links">
       <p>Follow me on:</p>
       <ul>
-        <li><a href="https://www.facebook.com/leefrancis.solicar/" target="_blank">Facebook</a></li>
-        <li><a href="https://www.instagram.com/frncs.ls/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/leefrancis.solicar/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://www.instagram.com/frncs.ls/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://github.com/frncs04" target="_blank"><i class="fab fa-github"></i></a></li>
       </ul>
     </div>
-  </section>
 
-  <!-- Contact Form Modal -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="contact-form" id="contactForm">
-      <span class="close-btn" onclick="closeContactForm()">&times;</span>
-      <h3>Send me a message</h3>
-      <form action="send_email.php" method="post">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <input type="text" name="subject" placeholder="Subject" required>
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+    <!-- Contact Form Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="contact-form" id="contactForm">
+        <span class="close-btn" onclick="closeContactForm()">&times;</span>
+        <h3>Send me a message</h3>
+        <form action="contact.php" method="post">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="text" name="subject" placeholder="Subject" required>
+          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- Footer -->
   <footer>
@@ -167,23 +245,55 @@
 
   <!-- JavaScript -->
   <script>
-    function showContactForm() {
-      document.getElementById('modalOverlay').style.display = 'flex';
-    }
+    // Typing Effect
+    const typingText = document.getElementById('typing-text');
+    const words = ["Student", "Developer", "Tech Enthusiast"];
+    let wordIndex = 0;
+    let letterIndex = 0;
+    let currentWord = '';
+    let isDeleting = false;
 
-    function closeContactForm() {
-      document.getElementById('modalOverlay').style.display = 'none';
-    }
+    function type() {
+      if (wordIndex < words.length) {
+        if (!isDeleting && letterIndex <= words[wordIndex].length) {
+          currentWord = words[wordIndex].substring(0, letterIndex++);
+        } else if (isDeleting && letterIndex >= 0) {
+          currentWord = words[wordIndex].substring(0, letterIndex--);
+        }
 
-    // Close modal when clicking outside the form
-    window.onclick = function(event) {
-      const overlay = document.getElementById('modalOverlay');
-      const form = document.getElementById('contactForm');
-      if (event.target === overlay) {
-        closeContactForm();
+        typingText.textContent = currentWord;
+
+        let speed = isDeleting ? 50 : 150;
+
+        if (!isDeleting && letterIndex === words[wordIndex].length) {
+          speed = 1000; // Pause at end
+          isDeleting = true;
+        } else if (isDeleting && letterIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
+
+        setTimeout(type, speed);
       }
     }
-  </script>
+    type();
+    
+    document.addEventListener('DOMContentLoaded', function () {
+    const photo = document.querySelector('.about-photo');
 
+    function checkScroll() {
+      const aboutSection = document.getElementById('about');
+      const rect = aboutSection.getBoundingClientRect();
+
+      if (rect.top <= window.innerHeight * 0.8) {
+        photo.classList.add('visible');
+      }
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); // in case already scrolled on load
+  });
+
+  </script>
 </body>
 </html>

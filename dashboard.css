@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background: #23588a;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  table thead {
+    background: #ddd;
+  }
+  
+  table th, table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  table tbody tr:hover {
+    background: #f1f1f1;
+  }
+  
