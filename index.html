@@ -6,6 +6,7 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     html {
       scroll-behavior: smooth;
@@ -160,13 +161,21 @@
     </nav>
   </header>
   
-  <!-- Welcome Section -->
+
+  <!-- Welcome Section-->
   <section id="welcome" class="welcome-section">
+    <!-- Spline Background -->
+    <div class="spline-bg">
+      <iframe src="https://my.spline.design/robotfollowcursorforlandingpage-LIW8xnackl4lVmV2atEqg41F/" frameborder="0" allowfullscreen></iframe>
+    </div>
+  
+    <!-- Foreground Text -->
     <div class="text-content">
       <h1>Welcome to My Personal Website!</h1>
-      <h2 id="typing-text" style="font-weight: normal; margin-top: 10px;"></h2>
+      <h2 id="typing-text">Tec</h2>
     </div>
   </section>
+  
 
   <!-- Home Section -->
   <section id="home" class="home-section fade-in">
@@ -176,13 +185,25 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section-content fade-in">
-    <h2>About Me</h2>
-    <p>Hi! I'm Lee Francis Solicar, currently a BSIT 2 PACED student. I'm passionate about technology, constantly learning and exploring new ways to solve problems and create cool solutions. Let me share a bit more about my journey and what drives me!</p>
-  
-    <img src="human.jpg" alt="About Me Image" class="about-photo hidden" />
-  </section>
+ <!-- About Section -->
+<section id="about" class="section-content fade-in">
+  <h2>About Me</h2>
+
+  <div id="about-content">
+    <p class="about-text">
+      Hi! I'm Lee Francis Solicar, currently a BSIT 2 PACED student. I'm passionate about technology, constantly learning and exploring new ways to solve problems and create cool solutions.
+    </p>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="about-nav-buttons">
+    <button id="left-btn"><i class="fas fa-arrow-left"></i></button>
+    <button id="right-btn"><i class="fas fa-arrow-right"></i></button>    
+  </div>
+
+  <img src="human.jpg" alt="About Me Image" class="about-photo hidden" />
+</section>
+
   
   <!-- Projects Section -->
   <section id="projects" class="section-content fade-in">
@@ -243,56 +264,85 @@
     <p>&copy; 2025 Lee Francis Solicar. All rights reserved.</p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    // Typing Effect
-    const typingText = document.getElementById('typing-text');
-    const words = ["Student", "Developer", "Tech Enthusiast"];
-    let wordIndex = 0;
-    let letterIndex = 0;
-    let currentWord = '';
-    let isDeleting = false;
-
-    function type() {
-      if (wordIndex < words.length) {
-        if (!isDeleting && letterIndex <= words[wordIndex].length) {
-          currentWord = words[wordIndex].substring(0, letterIndex++);
-        } else if (isDeleting && letterIndex >= 0) {
-          currentWord = words[wordIndex].substring(0, letterIndex--);
-        }
-
-        typingText.textContent = currentWord;
-
-        let speed = isDeleting ? 50 : 150;
-
-        if (!isDeleting && letterIndex === words[wordIndex].length) {
-          speed = 1000; // Pause at end
-          isDeleting = true;
-        } else if (isDeleting && letterIndex === 0) {
-          isDeleting = false;
-          wordIndex = (wordIndex + 1) % words.length;
-        }
-
-        setTimeout(type, speed);
-      }
-    }
-    type();
-    
     document.addEventListener('DOMContentLoaded', function () {
-    const photo = document.querySelector('.about-photo');
-
-    function checkScroll() {
-      const aboutSection = document.getElementById('about');
-      const rect = aboutSection.getBoundingClientRect();
-
-      if (rect.top <= window.innerHeight * 0.8) {
-        photo.classList.add('visible');
+      // Typing effect
+      const typingText = document.getElementById('typing-text');
+      const words = ["Student", "Developer", "Tech Enthusiast"];
+      let wordIndex = 0;
+      let letterIndex = 0;
+      let currentWord = '';
+      let isDeleting = false;
+  
+      function type() {
+        if (wordIndex < words.length) {
+          if (!isDeleting && letterIndex <= words[wordIndex].length) {
+            currentWord = words[wordIndex].substring(0, letterIndex++);
+          } else if (isDeleting && letterIndex >= 0) {
+            currentWord = words[wordIndex].substring(0, letterIndex--);
+          }
+  
+          typingText.textContent = currentWord;
+  
+          let speed = isDeleting ? 50 : 150;
+  
+          if (!isDeleting && letterIndex === words[wordIndex].length) {
+            speed = 1000;
+            isDeleting = true;
+          } else if (isDeleting && letterIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+          }
+  
+          setTimeout(type, speed);
+        }
       }
-    }
-
-    window.addEventListener('scroll', checkScroll);
-    checkScroll(); // in case already scrolled on load
-  });
+      type();
+  
+      // About photo animation on scroll
+      const photo = document.querySelector('.about-photo');
+      function checkScroll() {
+        const aboutSection = document.getElementById('about');
+        const rect = aboutSection.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.8) {
+          photo.classList.add('visible');
+        }
+      }
+      window.addEventListener('scroll', checkScroll);
+      checkScroll();
+  
+      // About section content switch with animation
+      const descriptions = [
+        `Hi! I'm Lee Francis Solicar, currently a BSIT 2 PACED student. I'm passionate about technology, constantly learning and exploring new ways to solve problems and create cool solutions.`,
+        `💡 <strong>My Skills:</strong> HTML, CSS, PHP, basic Python, MySQL, and responsive web design.`,
+        `💼 <strong>My Experience:</strong> Built school projects like organization systems, websites, and collaborated using version control tools.`
+      ];
+  
+      let currentIndex = 0;
+      const aboutText = document.querySelector('.about-text');
+      const leftBtn = document.getElementById('left-btn');
+      const rightBtn = document.getElementById('right-btn');
+  
+      function updateAboutText() {
+        aboutText.classList.remove('fade-in-text');
+  
+        // Force reflow to restart animation
+        void aboutText.offsetWidth;
+  
+        aboutText.innerHTML = descriptions[currentIndex];
+        aboutText.classList.add('fade-in-text');
+      }
+  
+      leftBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + descriptions.length) % descriptions.length;
+        updateAboutText();
+      });
+  
+      rightBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % descriptions.length;
+        updateAboutText();
+      });
+    });
 
   </script>
 </body>

@@ -157,6 +157,8 @@ section p {
 
 /* Welcome Section Styling */
 #welcome {
+    position: relative;
+    overflow: hidden;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -186,6 +188,29 @@ section p {
     color: #fff;
     transition: transform 0.3s ease;
 }
+.spline-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: auto; /* Let mouse through */
+  }
+  
+  .spline-bg iframe {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  
+  /* Foreground Text */
+  .text-content {
+    position: relative;
+    z-index: 1;
+  }
 
 /* Home Section: Centered Welcoming Page */
 .home-section {
@@ -215,7 +240,7 @@ section p {
 #about {
     color: #fff;
     padding: 75px;
-    height: 75vh;
+    height: 100vh;
     text-align: center;
     margin-top: 0px;
     opacity: 0;
@@ -225,6 +250,26 @@ section p {
     margin-top: 120px; /* Adjusted for fixed header */
 }
 
+.about-nav-buttons {
+    margin-top: 20px;
+  }
+  
+  .about-nav-buttons button {
+    padding: 10px 15px;
+    margin: 0 10px;
+    font-size: 1.4em;
+    border: none;
+    border-radius: 6px;
+    background-color: #0ea3e9;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .about-nav-buttons button:hover {
+    background-color: #0c7cb7;
+  }
+  
 /* Projects Section */
 #projects {
     color: #fff;
@@ -403,6 +448,21 @@ html {
   }
   
 
+  .fade-in-text {
+    animation: fadeInText 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeInText {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
   /* Fade In animation */
   @keyframes fadeIn {
     from {
