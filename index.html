@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <!-- Toggle Buttons (Always Visible) -->
+  <!-- Toggle Buttons -->
   <div class="toggle-buttons">
     <button id="mobileBtn" class="top-right-btn" title="Mobile View">
       <i class="fas fa-mobile-alt"></i>
@@ -20,21 +20,20 @@
     </button>
   </div>
 
-  <!-- Main Content Wrapper -->
   <div id="main-content">
 
-    <!-- Header -->
-    <header>
-      <nav class="navbar">
-        <div class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
-    </header>
-
+  <!--Header-->
+  <header>
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+  
     <!-- Welcome Section -->
     <section id="welcome" class="welcome-section">
       <div class="spline-bg">
@@ -70,17 +69,18 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section-content fade-in">
+    <section id="projects">
       <h2>Projects</h2>
-      <ul>
-        <li>
+      <div class="project-item">
+        <div class="project-description">
           <strong>Not Found Animation:</strong> A simple HTML and CSS animation.
-          <video width="480" height="320" controls autoplay loop muted>
-            <source src="NotFound.mp4" type="video/mp4">
-          </video>
-        </li>
-      </ul>
+        </div>
+        <video width="480" controls autoplay loop muted>
+          <source src="NotFound.mp4" type="video/mp4">
+        </video>
+      </div>
     </section>
+    
 
     <!-- Contact Section -->
     <section id="contact" class="section-content fade-in">
@@ -190,14 +190,13 @@
       const mainContent = document.getElementById('main-content');
 
       mobileBtn.addEventListener('click', () => {
-        document.body.classList.add('mobile-mode');
-      });
+  document.body.classList.add('mobile-mode');
+});
 
-      pcBtn.addEventListener('click', () => {
-        document.body.classList.remove('mobile-mode');
-      });
+pcBtn.addEventListener('click', () => {
+  document.body.classList.remove('mobile-mode');
+});
     });
-  </script>
-
+  </script> 
 </body>
 </html>
