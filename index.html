@@ -7,273 +7,118 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    /* Modal Overlay */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* Contact Form Modal */
-    .contact-form {
-      background-color: #f2f2f2;
-      padding: 20px;
-      border-radius: 8px;
-      width: 90%;
-      max-width: 400px;
-      position: relative;
-      animation: fadeIn 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1em;
-    }
-
-    .contact-form button {
-      background-color: #f08a06;
-      color: #fff;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .contact-form button:hover {
-      background-color: #0ea3e9;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 5px;
-      right: 10px;
-      font-size: 20px;
-      cursor: pointer;
-      color: #333;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    /* Additional styling for the contact form page */
-    .contact-form-container {
-      width: 80%;
-      margin: 50px auto;
-      padding: 30px;
-      background-color: #f9f9f9;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact-form-container h2 {
-      text-align: center;
-      color: #333;
-    }
-
-    .contact-form-container form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .contact-form-container input,
-    .contact-form-container textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1em;
-    }
-
-    .contact-form-container button {
-      background-color: #f08a06;
-      color: #fff;
-      padding: 12px 15px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1.1em;
-    }
-
-    .contact-form-container button:hover {
-      background-color: #0ea3e9;
-    }
-
-    .back-link {
-      display: block;
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .back-link a {
-      text-decoration: none;
-      color: #f08a06;
-      font-size: 1.1em;
-    }
-
-    /* Fade-in animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-  </style>
 </head>
-
 <body>
 
-  <!-- Header -->
-  <header>
-    <nav class="navbar">
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
-  
-
-  <!-- Welcome Section-->
-  <section id="welcome" class="welcome-section">
-    <!-- Spline Background -->
-    <div class="spline-bg">
-      <iframe src="https://my.spline.design/robotfollowcursorforlandingpage-LIW8xnackl4lVmV2atEqg41F/" frameborder="0" allowfullscreen></iframe>
-    </div>
-  
-    <!-- Foreground Text -->
-    <div class="text-content">
-      <h1>Welcome to My Personal Website!</h1>
-      <h2 id="typing-text">Tec</h2>
-    </div>
-  </section>
-  
-
-  <!-- Home Section -->
-  <section id="home" class="home-section fade-in">
-    <div class="text-content">
-      <h1>Home</h1>
-      <p>Welcome! This is the first page you’ll see. Here’s a quick idea of who I am and easy links to explore more.</p>
-    </div>
-  </section>
-
- <!-- About Section -->
-<section id="about" class="section-content fade-in">
-  <h2>About Me</h2>
-
-  <div id="about-content">
-    <p class="about-text">
-      Hi! I'm Lee Francis Solicar, currently a BSIT 2 PACED student. I'm passionate about technology, constantly learning and exploring new ways to solve problems and create cool solutions.
-    </p>
+  <!-- Toggle Buttons (Always Visible) -->
+  <div class="toggle-buttons">
+    <button id="mobileBtn" class="top-right-btn" title="Mobile View">
+      <i class="fas fa-mobile-alt"></i>
+    </button>
+    <button id="pcBtn" class="top-right-btn" title="PC View">
+      <i class="fas fa-desktop"></i>
+    </button>
   </div>
 
-  <!-- Navigation Buttons -->
-  <div class="about-nav-buttons">
-    <button id="left-btn"><i class="fas fa-arrow-left"></i></button>
-    <button id="right-btn"><i class="fas fa-arrow-right"></i></button>    
-  </div>
+  <!-- Main Content Wrapper -->
+  <div id="main-content">
 
-  <img src="human.jpg" alt="About Me Image" class="about-photo hidden" />
-</section>
+    <!-- Header -->
+    <header>
+      <nav class="navbar">
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
 
-  
-  <!-- Projects Section -->
-  <section id="projects" class="section-content fade-in">
-    <h2>Projects</h2>
-    <ul>
-      <li>
-        <strong>Not Found Animation:</strong> A simple HTML and CSS animation.
-        <br><br>
-        <video width="480" height="320" controls autoplay loop muted>
-          <source src="NotFound.mp4" type="video/mp4">
-        </video>
-        <br><br>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section-content fade-in">
-    <h2>Contact</h2>
-    <p>Get in touch via email or social media. I’d love to collaborate or chat about exciting opportunities!</p>
-
-    <!-- Email Link -->
-    <div class="contact-emails">
-      <p>Email me:</p>
-      <ul>
-        <li><a href="email.html"> <i class="fas fa-envelope"></i></a></li>
-      </ul>
-    </div>
-
-    <!-- Social Media Links -->
-    <div class="social-links">
-      <p>Follow me on:</p>
-      <ul>
-        <li><a href="https://www.facebook.com/leefrancis.solicar/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="https://www.instagram.com/frncs.ls/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="https://github.com/frncs04" target="_blank"><i class="fab fa-github"></i></a></li>
-      </ul>
-    </div>
-
-    <!-- Contact Form Modal -->
-    <div class="modal-overlay" id="modalOverlay">
-      <div class="contact-form" id="contactForm">
-        <span class="close-btn" onclick="closeContactForm()">&times;</span>
-        <h3>Send me a message</h3>
-        <form action="contact.php" method="post">
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <input type="text" name="subject" placeholder="Subject" required>
-          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
+    <!-- Welcome Section -->
+    <section id="welcome" class="welcome-section">
+      <div class="spline-bg">
+        <iframe src="https://my.spline.design/robotfollowcursorforlandingpage-LIW8xnackl4lVmV2atEqg41F/" loading="lazy" frameborder="0" allowfullscreen></iframe>
       </div>
-    </div>
-  </section>
+      <div class="text-content">
+        <h1>Welcome to My Personal Website!</h1>
+        <h2 id="typing-text">Tec</h2>
+      </div>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Lee Francis Solicar. All rights reserved.</p>
-  </footer>
+    <!-- Home Section -->
+    <section id="home" class="home-section fade-in">
+      <div class="text-content">
+        <h1>Home</h1>
+        <p>Welcome! This is the first page you’ll see. Here’s a quick idea of who I am and easy links to explore more.</p>
+      </div>
+    </section>
 
+    <!-- About Section -->
+    <section id="about" class="section-content fade-in">
+      <h2>About Me</h2>
+      <div id="about-content">
+        <p class="about-text">
+          Hi! I'm Lee Francis Solicar, currently a BSIT 2 PACED student...
+        </p>
+      </div>
+      <div class="about-nav-buttons">
+        <button id="left-btn"><i class="fas fa-arrow-left"></i></button>
+        <button id="right-btn"><i class="fas fa-arrow-right"></i></button>    
+      </div>
+      <img src="human.jpg" alt="About Me Image" class="about-photo hidden" />
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-content fade-in">
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <strong>Not Found Animation:</strong> A simple HTML and CSS animation.
+          <video width="480" height="320" controls autoplay loop muted>
+            <source src="NotFound.mp4" type="video/mp4">
+          </video>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-content fade-in">
+      <h2>Contact</h2>
+      <p>Get in touch via email or social media...</p>
+      <div class="contact-emails">
+        <p>Email me:</p>
+        <ul>
+          <li><a href="email.html"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+      </div>
+      <div class="social-links">
+        <p>Follow me on:</p>
+        <ul>
+          <li><a href="https://www.facebook.com/leefrancis.solicar/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="https://www.instagram.com/frncs.ls/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://github.com/frncs04" target="_blank"><i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Lee Francis Solicar. All rights reserved.</p>
+    </footer>
+
+  </div> <!-- End #main-content -->
+
+  <!-- JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Typing effect
       const typingText = document.getElementById('typing-text');
       const words = ["Student", "Developer", "Tech Enthusiast"];
       let wordIndex = 0;
       let letterIndex = 0;
       let currentWord = '';
       let isDeleting = false;
-  
+
       function type() {
         if (wordIndex < words.length) {
           if (!isDeleting && letterIndex <= words[wordIndex].length) {
@@ -281,11 +126,11 @@
           } else if (isDeleting && letterIndex >= 0) {
             currentWord = words[wordIndex].substring(0, letterIndex--);
           }
-  
+
           typingText.textContent = currentWord;
-  
+
           let speed = isDeleting ? 50 : 150;
-  
+
           if (!isDeleting && letterIndex === words[wordIndex].length) {
             speed = 1000;
             isDeleting = true;
@@ -293,57 +138,66 @@
             isDeleting = false;
             wordIndex = (wordIndex + 1) % words.length;
           }
-  
+
           setTimeout(type, speed);
         }
       }
       type();
-  
-      // About photo animation on scroll
+
+      // Scroll animation
       const photo = document.querySelector('.about-photo');
       function checkScroll() {
         const aboutSection = document.getElementById('about');
         const rect = aboutSection.getBoundingClientRect();
-        if (rect.top <= window.innerHeight * 0.8) {
+        if (rect.top <= window.innerHeight * 0.8 && photo) {
           photo.classList.add('visible');
         }
       }
       window.addEventListener('scroll', checkScroll);
       checkScroll();
-  
-      // About section content switch with animation
+
+      // About carousel
       const descriptions = [
-        `Hi! I'm Lee Francis Solicar, currently a BSIT 2 PACED student. I'm passionate about technology, constantly learning and exploring new ways to solve problems and create cool solutions.`,
-        `💡 <strong>My Skills:</strong> HTML, CSS, PHP, basic Python, MySQL, and responsive web design.`,
-        `💼 <strong>My Experience:</strong> Built school projects like organization systems, websites, and collaborated using version control tools.`
+        `Hi! I'm Lee Francis Solicar...`,
+        `💡 <strong>My Skills:</strong> HTML, CSS, PHP...`,
+        `💼 <strong>Experience:</strong> School projects...`
       ];
-  
       let currentIndex = 0;
       const aboutText = document.querySelector('.about-text');
       const leftBtn = document.getElementById('left-btn');
       const rightBtn = document.getElementById('right-btn');
-  
+
       function updateAboutText() {
         aboutText.classList.remove('fade-in-text');
-  
-        // Force reflow to restart animation
         void aboutText.offsetWidth;
-  
         aboutText.innerHTML = descriptions[currentIndex];
         aboutText.classList.add('fade-in-text');
       }
-  
+
       leftBtn.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + descriptions.length) % descriptions.length;
         updateAboutText();
       });
-  
+
       rightBtn.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % descriptions.length;
         updateAboutText();
       });
-    });
 
+      // Layout switching logic
+      const mobileBtn = document.getElementById('mobileBtn');
+      const pcBtn = document.getElementById('pcBtn');
+      const mainContent = document.getElementById('main-content');
+
+      mobileBtn.addEventListener('click', () => {
+        document.body.classList.add('mobile-mode');
+      });
+
+      pcBtn.addEventListener('click', () => {
+        document.body.classList.remove('mobile-mode');
+      });
+    });
   </script>
+
 </body>
 </html>
